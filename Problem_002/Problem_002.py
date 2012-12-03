@@ -14,7 +14,20 @@ class Problem002:
         '''
         Constructor
         '''
+        self.upperBound = upperBound
+        self.sum = self.__calculate(self.upperBound)
+        
+    def __calculate(self,upperBound):
+        '''
+        '''
+        sum = 0
+        fib = 0
+        helper = 0
+        while helper < upperBound:
+            sum +=1
+        
+        return sum
         
         
 if __name__ == '__main__':
-    pass
+    solution = Problem002(4000000)
