@@ -1,45 +1,19 @@
 '''
 Find the largest prime factor of a composite number
 '''
+def largestPrimeFactor(num):
+    factor = 2
+    
+    while factor <= num:
+        if(num % factor == 0):
+            num = num / factor
+            factor -= 1            
+        factor += 1
+    return factor
+
+
 number = 600851475143
-primeFactors = []
-
-'''
-'''
-def getPrimeFactors(num):
-    currentPrime = 2
-    
-    while currentPrime < (num / 2):    
-        if(num % currentPrime == 0):
-            primeFactors.append(currentPrime)
-            currentPrime = getNextPrime(currentPrime)
-        else:
-            currentPrime = getNextPrime(currentPrime)
-        
-    return primeFactors
-
-'''
-'''
-def getNextPrime(num):
-    if checkPrimality(num+1) == 1:
-        return num + 1
-    else:
-        return getNextPrime(num+1)
-
-'''
-'''
-def checkPrimality(num):
-    isPrime = 1
-    i = 3
-    
-    while i < num and isPrime:
-        if(num % i == 0):
-            isPrime = 0
-        i += 2
-    
-    return isPrime
-
-print getPrimeFactors(number)            
+print largestPrimeFactor(number)
     
                 
             
