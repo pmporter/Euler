@@ -5,7 +5,6 @@ the 6th prime is 13.
 
 What is the 10 001st prime number?
 '''
-import math
 
 def getPrime(index):
     primes = [2,3]
