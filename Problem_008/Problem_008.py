@@ -4,6 +4,7 @@ Find the greatest product of five consecutive digits in the 1000-digit number.
 Get five digits
 '''
 from collections import deque
+import time
 
 '''
 Return the largest product of consecutive digits in a number
@@ -12,20 +13,24 @@ No error checking implemented
 No 0-checking/skipping implemented
 '''
 def largestProductOfConsecutiveDigits(number, consecutiveDigits):
-    largestProduct = 1
+    largestProduct = 0
     numberAsDeque = deque(list(number))
     digitDeque = deque()
     
     while len(numberAsDeque) > 0:
+        
         while len(digitDeque) < consecutiveDigits:
-            digitDeque.append(numberAsDeque.popleft())
+            #Get next number to be appended and miltiplied
+            nextNumber = numberAsDeque.popleft()
+            digitDeque.append(nextNumber)
+
         product = productOfDigits(digitDeque)
         
         if product > largestProduct:
             largestProduct = product
             
         digitDeque.popleft()
-
+    
     return largestProduct
    
 '''
